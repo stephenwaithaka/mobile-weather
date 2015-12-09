@@ -41,13 +41,14 @@ $(function(){
 
 					// Get the local time of this forecast (the api returns it in utc)
 					var localTime = new Date(this.dt*1000 - offset);
-				
+
 					addWeather(
 						this.weather[0].icon,
 						moment(localTime).calendar(),	// We are using the moment.js library to format the date
 						this.weather[0].main + ' <b>' + convertTemperature(this.main.temp_min) + '°' + DEG +
 												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>'
 					);
+
 					/* This will be the if statement, if we decide to replace api logic for images
 					if (main.temp_min < -20 and main.condition = "snow") {  
 						greeting = "Winter coat and hat";
@@ -56,6 +57,7 @@ $(function(){
 					} else {
 						greeting = "Good evening";
 					}*/
+
 
 				});
 
@@ -100,6 +102,7 @@ $(function(){
 
 		var markup = '<li>'+
 			'<img src="assets/img/icons/'+ icon +'.gif" />'+
+			//'<img src="assets/img/icons/'+ icon +'.png" />'+
 			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
 			'</p></li>';
 
