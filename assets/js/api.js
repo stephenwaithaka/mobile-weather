@@ -168,7 +168,11 @@ $(function(){
 				showError('We can\'t detect your location. Sorry!');
 				break;
 			case error.PERMISSION_DENIED:
-				showError('Please allow geolocation access for this to work.');
+			$.get("http://ipinfo.io", function(location) {
+    				console.log(location.city, location.region, location.country);
+				}, "jsonp");
+				locationSuccess();
+//				showError('Please allow geolocation access for this to work.');
 				break;
 			case error.UNKNOWN_ERROR:
 				showError('An unknown error occured!');

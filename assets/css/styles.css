@@ -14,15 +14,9 @@
 --------------------------*/
 
 
-<<<<<<< HEAD
 /*html{
 	background:url('../img/bg.jpg') repeat #e1f0f6;
 }*/
-=======
-html{
-	background:url('../img/bg.jpg') repeat #e1f0f6;
-}
->>>>>>> 13f260fc660193be2e5fbc2f301bf7e17439dff4
 
 
 body{
@@ -50,11 +44,7 @@ section, footer, header{
 
 header h1{
 	text-align:center;
-<<<<<<< HEAD
 	font: normal 52px 'garment', cursive;
-=======
-	font: normal 52px 'Playball', cursive;
->>>>>>> 13f260fc660193be2e5fbc2f301bf7e17439dff4
 	color:#518191;
 	padding-top:60px;
 	text-shadow:1px 1px 1px rgba(0,0,0,0.1);
@@ -211,6 +201,21 @@ header h1{
 
 #scroller, .arrow{
 	display:none;
+}
+
+
+
+/*----------------------------
+	The Map Div
+-----------------------------*/
+
+
+#map{
+	position:relative;
+	width:494px;
+	height:180px;
+	margin: 50px auto 25px;
+	overflow:hidden;
 }
 
 
