@@ -46,7 +46,8 @@ $(function(){
 						this.weather[0].icon,
 						moment(localTime).calendar(),	// We are using the moment.js library to format the date
 						this.weather[0].main + ' <b>' + convertTemperature(this.main.temp_min) + '°' + DEG +
-												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>'
+												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>',
+						convertTemperature(this.main.temp_min)
 					);
 
 					/* This will be the if statement, if we decide to replace api logic for images
@@ -98,14 +99,30 @@ $(function(){
 		}
 	}
 
-	function addWeather(icon, day, condition){
-
+	function addWeather(icon, day, condition, temp){
+	if(temp < 15){//> 15){ //
+		if(condition == 'rain'){ 
 		var markup = '<li>'+
+			'<img src="assets/img/icons/13d.gif" />'+
+			//'<img src="assets/img/icons/'+ icon +'.png" />'+
+			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
+			'</p></li>';
+			}
+			else{
+			var markup = '<li>'+
+			'<img src="assets/img/icons/13d.gif" />'+
+			//'<img src="assets/img/icons/'+ icon +'.png" />'+
+			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
+			'</p></li>';	
+				}
+		}
+	else{
+				var markup = '<li>'+
 			'<img src="assets/img/icons/'+ icon +'.gif" />'+
 			//'<img src="assets/img/icons/'+ icon +'.png" />'+
 			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
 			'</p></li>';
-
+		}
 		scroller.append(markup);
 	}
 
