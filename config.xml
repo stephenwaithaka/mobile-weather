@@ -19,6 +19,10 @@
     <platform name="ios" />
 	<platform name="android" />
 	<platform name="winphone" />
+    <capabilities>
+        <capability Name="ID_CAP_LOCATION" />
+    
+    </capabilities>
     <plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
     
 
