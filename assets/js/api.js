@@ -1,7 +1,9 @@
 $(function(){
 
 	/* Configuration */
-
+	// New event listener for mobile
+	document.addEventListener("deviceready", onDeviceReady, false);
+	
 	var DEG = 'c';			// c for celsius, f for fahrenheit
 
 	var weatherDiv = $('#weather'),
@@ -9,16 +11,22 @@ $(function(){
 		location = $('p.location');
 
 	// Does this browser support geolocation?
-	if (navigator.geolocation.getCurrentPosition) {
+	/*if (navigator.geolocation.getCurrentPosition) {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 	}
 	else{
 		showError("Your browser does not support Geolocation!");
 	}
+*/
+
 
 	// Get user's location, and use OpenWeatherMap
 	// to get the location name and weather forecast
 
+	function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(locationSuccess, onError);
+    }
+	
 	function locationSuccess(position) {
 
 		try{
@@ -99,6 +107,11 @@ $(function(){
 			window.console && console.error(e);
 		}
 	}
+	
+	function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
 
 	function addWeather(icon, day, condition, temp, con){
 	if(temp < 5){//> 15){ //
