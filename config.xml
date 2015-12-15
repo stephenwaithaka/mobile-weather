@@ -14,11 +14,13 @@
     </description>
 
     <author href="https://build.phonegap.com" email="support@phonegap.com">
-        Hardeep Shoker 
+        Inan Yildiz, Stephen Waithaka
     </author>
     <platform name="ios" />
 	<platform name="android" />
 	<platform name="winphone" />
+    <plugin name="fi.avaus.cordova.geolocation" spec="0.3.11" source="pgb" />
+    
 
 
 </widget>
