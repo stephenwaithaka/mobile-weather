@@ -14,9 +14,9 @@
 --------------------------*/
 
 
-html{
+/*html{
 	background:url('../img/bg.jpg') repeat #e1f0f6;
-}
+}*/
 
 
 body{
@@ -44,7 +44,7 @@ section, footer, header{
 
 header h1{
 	text-align:center;
-	font: normal 52px 'Playball', cursive;
+	font: normal 52px 'garment', cursive;
 	color:#518191;
 	padding-top:60px;
 	text-shadow:1px 1px 1px rgba(0,0,0,0.1);
@@ -175,7 +175,8 @@ header h1{
 }
 
 #scroller li .day{
-	color:#dcf0f6;
+	/*color:#dcf0f6;*/
+	color:#424242
 	font-size:15px;
 	padding-top: 20px;
 	text-shadow:1px 1px 0 rgba(0,0,0,0.15);
@@ -201,6 +202,21 @@ header h1{
 
 #scroller, .arrow{
 	display:none;
+}
+
+
+
+/*----------------------------
+	The Map Div
+-----------------------------*/
+
+
+#map{
+	position:relative;
+	width:494px;
+	height:180px;
+	margin: 50px auto 25px;
+	overflow:hidden;
 }
 
 

@@ -46,8 +46,20 @@ $(function(){
 						this.weather[0].icon,
 						moment(localTime).calendar(),	// We are using the moment.js library to format the date
 						this.weather[0].main + ' <b>' + convertTemperature(this.main.temp_min) + '°' + DEG +
-												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>'
+												' / ' + convertTemperature(this.main.temp_max) + '°' + DEG+'</b>',
+						convertTemperature(this.main.temp_min),
+						this.weather[0].main
 					);
+
+					/* This will be the if statement, if we decide to replace api logic for images
+					if (main.temp_min < -20 and main.condition = "snow") {  
+						greeting = "Winter coat and hat";
+					} else if (time < 20) {
+						greeting = "Good day";
+					} else {
+						greeting = "Good evening";
+					}*/
+
 
 				});
 
@@ -88,13 +100,30 @@ $(function(){
 		}
 	}
 
-	function addWeather(icon, day, condition){
-
+	function addWeather(icon, day, condition, temp, con){
+	if(temp < 5){//> 15){ //
+		if(con == 'Rain'){ 
 		var markup = '<li>'+
-			'<img src="assets/img/icons/'+ icon +'.png" />'+
+			'<img src="assets/img/icons/wintercoat+hat+umbrella.jpg" />'+
+			//'<img src="assets/img/icons/'+ icon +'.png" />'+
 			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
 			'</p></li>';
-
+			}
+			else{
+			var markup = '<li>'+
+			'<img src="assets/img/icons/13d.gif" />'+
+			//'<img src="assets/img/icons/'+ icon +'.png" />'+
+			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
+			'</p></li>';	
+				}
+		}
+	else{
+				var markup = '<li>'+
+			'<img src="assets/img/icons/'+ icon +'.gif" />'+
+			//'<img src="assets/img/icons/'+ icon +'.png" />'+
+			' <p class="day">'+ day +'</p> <p class="cond">'+ condition +
+			'</p></li>';
+		}
 		scroller.append(markup);
 	}
 
@@ -157,6 +186,10 @@ $(function(){
 				showError('We can\'t detect your location. Sorry!');
 				break;
 			case error.PERMISSION_DENIED:
+			//$.get("http://ipinfo.io", function(location) {
+    		//		console.log(location.city, location.region, location.country);
+			//	}, "jsonp");
+			//	locationSuccess();
 				showError('Please allow geolocation access for this to work.');
 				break;
 			case error.UNKNOWN_ERROR:
