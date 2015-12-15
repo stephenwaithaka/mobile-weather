@@ -9,7 +9,7 @@ $(function(){
 		location = $('p.location');
 
 	// Does this browser support geolocation?
-	if (navigator.geolocation) {
+	if (navigator.geolocation.getCurrentPosition) {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
 	}
 	else{
